@@ -38,10 +38,11 @@ namespace SignalR
 
             app.UseRouting();
             app.UseStaticFiles();
+            app.UseAuthentication();
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute("default", "{Controller=Home}/{Action=Index}/{id?}");
+                endpoints.MapControllerRoute("default", "{Controller=Login}/{Action=login}/{id?}");
                 endpoints.MapHub<ChatHub>("/chathub");
             });
         }

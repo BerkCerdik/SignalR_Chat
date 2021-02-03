@@ -19,10 +19,11 @@ namespace SignalR.Controllers
 
         public IActionResult Index()
         {
-
+            ViewBag.username = HttpContext.User.Claims.ToArray()[2].Value;
+            ViewBag.loginID = HttpContext.User.Claims.ToArray()[1].Value;
             List<User> users = _chatContext.Users.ToList();
 
-            return View();
+            return View(users);
         }
     }
 }
